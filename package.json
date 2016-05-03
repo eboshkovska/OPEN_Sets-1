@@ -53,6 +53,7 @@
     "main-bower-files": "*",
     "phantomjs-polyfill": "0.0.2",
     "phantomjs-prebuilt": "^2.1.7",
+    "remap-istanbul": "^0.6.3",
     "run-sequence": "*",
     "source-map-loader": "^0.1.5",
     "ts-helper": "0.0.1",

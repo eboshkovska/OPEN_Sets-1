@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Mon Apr 25 2016 15:12:17 GMT+0200 (Central European Daylight Time)
 
-module.exports = function (config) {
+module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -16,7 +16,7 @@ module.exports = function (config) {
     // list of files / patterns to load in the browser
     files: [
       { pattern: 'src/tests/*.ts', watched: false },
-      { pattern: 'src/scripts/logic/*.ts', watched: false }
+      { pattern: 'src/scripts/logic/*.js', watched: false }
     ],
 
 
@@ -29,7 +29,7 @@ module.exports = function (config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'src/tests/*.ts': ['typescript'],
-      'src/scripts/logic/*.ts': ['typescript', 'coverage']
+      'src/scripts/logic/*.js': ['coverage']
     },
 
     typescriptPreprocessor: {
@@ -38,14 +38,14 @@ module.exports = function (config) {
       compilerOptions: { // *optional 
         removeComments: false
       },
-      ignorePath: function (path) { // ignore all files that ends with .d.ts (this files will not be served) 
+      ignorePath: function(path) { // ignore all files that ends with .d.ts (this files will not be served) 
         return /\.d\.ts$/.test(path);
       },
       // transforming the filenames  
       // you can pass more than one, they will be execute in order 
-      transformPath: [function (path) { // *optional 
+      transformPath: [function(path) { // *optional 
         return path.replace(/\.ts$/, '.js');
-      }, function (path) {
+      }, function(path) {
         return path.replace(/[\/\\]test[\/\\]/i, '/'); // remove directory test and change to / 
       }]
     },
@@ -53,7 +53,8 @@ module.exports = function (config) {
     coverageReporter: {
       reporters: [
         { type: 'json', subdir: '.', file: 'coverage-final.json' },
-        { type: 'html', subdir: '.', file: 'coverage.html' }
+        { type: 'html', subdir: '.', file: 'coverage.html' },
+        { type: 'text-summary', subdir: '.' }
       ]
     },
 
